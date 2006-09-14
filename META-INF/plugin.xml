@@ -1,0 +1,22 @@
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
+<idea-plugin>
+    <vendor>Alexey Efimov</vendor>
+
+    <name>Batch Scripts Support</name>
+    <version>1.0.1</version>
+
+    <description>Enables Windows Batch Scripts support in IntelliJ IDEA.</description>
+    <resource-bundle>org.intellij.lang.batch.util.BatchBundle</resource-bundle>
+
+    <idea-version since-build="5231"/>
+
+    <application-components>
+        <component>
+            <interface-class>org.intellij.lang.batch.fileTypes.BatchFileTypeManager</interface-class>
+            <implementation-class>org.intellij.lang.batch.fileTypes.impl.BatchFileTypeManagerImpl</implementation-class>
+        </component>
+        <component>
+            <implementation-class>org.intellij.lang.batch.editor.colors.BatchEditorColorsManager</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>
