@@ -2,7 +2,7 @@
 <module version="4" relativePaths="true" type="PLUGIN_MODULE">
   <component name="DevKit.ModuleBuildProperties" url="file://$MODULE_DIR$/META-INF/plugin.xml" />
   <component name="ModuleRootManager" />
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -12,6 +12,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntryProperties />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ACTIVE_VCS_NAME" value="svn" />
+    <option name="USE_PROJECT_VCS" value="false" />
   </component>
 </module>
 
