@@ -1,6 +1,7 @@
 package org.intellij.lang.batch.editor;
 
 import com.intellij.openapi.editor.HighlighterColors;
+import com.intellij.openapi.editor.SyntaxHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.TextAttributes;
 
@@ -13,10 +14,10 @@ import java.awt.*;
  */
 public interface BatchHighlighterColors {
     TextAttributesKey COMMENT = TextAttributesKey.createTextAttributesKey(
-        "BATCH.COMMENT", HighlighterColors.JAVA_BLOCK_COMMENT.getDefaultAttributes()
+        "BATCH.COMMENT", SyntaxHighlighterColors.JAVA_BLOCK_COMMENT.getDefaultAttributes()
     );
     TextAttributesKey STRING = TextAttributesKey.createTextAttributesKey(
-        "BATCH.STRING", HighlighterColors.JAVA_STRING.getDefaultAttributes()
+        "BATCH.STRING", SyntaxHighlighterColors.STRING.getDefaultAttributes()
     );
     TextAttributesKey VARIABLE = TextAttributesKey.createTextAttributesKey(
         "BATCH.VARIABLE", new TextAttributes(new Color(0, 0, 0xff), null, null, null, Font.BOLD | Font.ITALIC)
@@ -40,19 +41,19 @@ public interface BatchHighlighterColors {
         "BATCH.NUMBER", new TextAttributes(new Color(0, 0, 0xff), null, null, null, 0)
     );
     TextAttributesKey OPERATION_SIGN = TextAttributesKey.createTextAttributesKey(
-        "BATCH.OPERATION_SIGN", HighlighterColors.JAVA_OPERATION_SIGN.getDefaultAttributes()
+        "BATCH.OPERATION_SIGN", SyntaxHighlighterColors.OPERATION_SIGN.getDefaultAttributes()
     );
     TextAttributesKey BRACES = TextAttributesKey.createTextAttributesKey(
-        "BATCH.BRACES", HighlighterColors.JAVA_BRACES.getDefaultAttributes()
+        "BATCH.BRACES", SyntaxHighlighterColors.BRACES.getDefaultAttributes()
     );
     TextAttributesKey BRACKETS = TextAttributesKey.createTextAttributesKey(
-        "BATCH.BRACES", HighlighterColors.JAVA_BRACKETS.getDefaultAttributes()
+        "BATCH.BRACES", SyntaxHighlighterColors.BRACKETS.getDefaultAttributes()
     );
     TextAttributesKey PARENTHS = TextAttributesKey.createTextAttributesKey(
-        "BATCH.PARENTHS", HighlighterColors.JAVA_PARENTHS.getDefaultAttributes()
+        "BATCH.PARENTHS", SyntaxHighlighterColors.PARENTHS.getDefaultAttributes()
     );
     TextAttributesKey KEYWORD = TextAttributesKey.createTextAttributesKey(
-        "BATCH.KEYWORD", HighlighterColors.JAVA_KEYWORD.getDefaultAttributes()
+        "BATCH.KEYWORD", SyntaxHighlighterColors.KEYWORD.getDefaultAttributes()
     );
 
     TextAttributesKey BAD_CHARACTER = HighlighterColors.BAD_CHARACTER;

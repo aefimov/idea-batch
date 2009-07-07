@@ -1,12 +1,13 @@
 package org.intellij.lang.batch.fileTypes;
 
+import com.intellij.lang.Language;
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.util.IconLoader;
+import org.intellij.lang.batch.BatchLanguage;
+import org.intellij.lang.batch.util.BatchBundle;
+import org.intellij.lang.batch.util.BatchIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.intellij.lang.batch.BatchLanguage;
-import org.intellij.lang.batch.util.BatchBundle;
 
 import javax.swing.*;
 
@@ -16,8 +17,11 @@ import javax.swing.*;
  * @author Alexey Efimov
  */
 public final class BatchFileType extends LanguageFileType {
+    public static final BatchFileType BATCH_FILE_TYPE = new BatchFileType();
+    public static final Language BASH_LANGUAGE = BATCH_FILE_TYPE.getLanguage();
+
     @NonNls
-    public static final String[] DEFAULT_ASSOCIATED_EXTENSIONS = new String[] {"bat", "cmd"};
+    public static final String[] DEFAULT_ASSOCIATED_EXTENSIONS = new String[]{"bat", "cmd"};
 
     public BatchFileType() {
         super(new BatchLanguage());
@@ -36,7 +40,7 @@ public final class BatchFileType extends LanguageFileType {
 
     @Nullable
     public Icon getIcon() {
-        return IconLoader.getIcon("/fileTypes/batch.png");
+        return BatchIcons.BATCH_FILE_ICON;
     }
 
     @NotNull

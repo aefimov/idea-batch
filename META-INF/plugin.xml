@@ -1,22 +1,26 @@
 <!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
 <idea-plugin>
-    <vendor>Alexey Efimov</vendor>
-
     <name>Batch Scripts Support</name>
-    <version>1.0.1</version>
 
-    <description>Enables Windows Batch Scripts support in IntelliJ IDEA.</description>
+    <description>
+        Enables Windows Batch Scripts support in IntelliJ IDEA.
+    </description>
+
+    <category>Custom Languages</category>
+    <version>1.0.2</version>
+    <vendor>Alexey Efimov</vendor>
+    <idea-version since-build="9100"/>
+
     <resource-bundle>org.intellij.lang.batch.util.BatchBundle</resource-bundle>
 
-    <idea-version since-build="5231"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="org.intellij.lang.batch.fileTypes.BatchFileTypeLoader"/>
 
-    <application-components>
-        <component>
-            <interface-class>org.intellij.lang.batch.fileTypes.BatchFileTypeManager</interface-class>
-            <implementation-class>org.intellij.lang.batch.fileTypes.impl.BatchFileTypeManagerImpl</implementation-class>
-        </component>
-        <component>
-            <implementation-class>org.intellij.lang.batch.editor.colors.BatchEditorColorsManager</implementation-class>
-        </component>
-    </application-components>
+        <!--Syntax highlighting-->
+        <syntaxHighlighter key="Batch"
+                           implementationClass="org.intellij.lang.batch.fileTypes.BatchSyntaxHighlighter"/>
+        <colorSettingsPage
+                implementation="org.intellij.lang.batch.editor.colors.BatchColorPage"/>
+    </extensions>
+
 </idea-plugin>

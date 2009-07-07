@@ -1,9 +1,9 @@
 package org.intellij.lang.batch;
 
 import com.intellij.lang.Language;
+import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import org.intellij.lang.batch.fileTypes.BatchSyntaxHighlighter;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -18,11 +18,17 @@ public class BatchLanguage extends Language {
     private static final String ID = "Batch";
 
     public BatchLanguage() {
-        super(ID);
+        super(ID, "application/x-batch", "application/x-bat", "text/x-script.bat");
+        SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new BatchHighlighterFactory());
     }
 
-    @NotNull
-    public SyntaxHighlighter getSyntaxHighlighter(Project project, VirtualFile file) {
-        return new BatchSyntaxHighlighter(project, file);
+    private static class BatchHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
+
+        @Override
+        @NotNull
+        protected SyntaxHighlighter createHighlighter() {
+            return new BatchSyntaxHighlighter();
+        }
+
     }
 }

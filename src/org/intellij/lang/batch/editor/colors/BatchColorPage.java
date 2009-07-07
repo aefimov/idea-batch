@@ -1,28 +1,28 @@
 package org.intellij.lang.batch.editor.colors;
 
+import com.intellij.openapi.application.PathManager;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
-import com.intellij.openapi.application.PathManager;
 import com.intellij.openapi.util.io.FileUtil;
-import com.intellij.openapi.diagnostic.Logger;
 import org.intellij.lang.batch.editor.BatchHighlighterColors;
-import org.intellij.lang.batch.fileTypes.BatchFileTypeManager;
+import org.intellij.lang.batch.fileTypes.BatchSyntaxHighlighter;
+import org.intellij.lang.batch.util.BatchIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.io.File;
-import java.io.IOException;
 
 final class BatchColorPage implements ColorSettingsPage {
-    private static final AttributesDescriptor[] EMPTY_ATTRIBUTES_DESCRIPTOR_ARRAY = new AttributesDescriptor[]{};
     private static final ColorDescriptor[] EMPTY_COLOR_DESCRIPTOR_ARRAY = new ColorDescriptor[]{};
     @NonNls
     private static final String SAMPLE = extractIdeaScript();
@@ -53,7 +53,7 @@ final class BatchColorPage implements ColorSettingsPage {
 
     @NotNull
     public AttributesDescriptor[] getAttributeDescriptors() {
-        return attributeDescriptors.toArray(EMPTY_ATTRIBUTES_DESCRIPTOR_ARRAY);
+        return attributeDescriptors.toArray(new AttributesDescriptor[attributeDescriptors.size()]);
     }
 
     @NotNull
@@ -71,7 +71,7 @@ final class BatchColorPage implements ColorSettingsPage {
         String binPath = PathManager.getBinPath();
         try {
             char[] chars = FileUtil.loadFileText(new File(binPath, "idea.bat"));
-            return new String(chars);
+            return new String(chars).replaceAll("\\r", "");
         } catch (IOException e) {
             Logger.getInstance(BatchColorPage.class.getName()).error(e);
         }
@@ -85,12 +85,12 @@ final class BatchColorPage implements ColorSettingsPage {
 
     @NotNull
     public SyntaxHighlighter getHighlighter() {
-        return BatchFileTypeManager.getInstance().getFileType().getLanguage().getSyntaxHighlighter(null, null);
+        return new BatchSyntaxHighlighter();
     }
 
     @Nullable
     public Icon getIcon() {
-        return BatchFileTypeManager.getInstance().getFileType().getIcon();
+        return BatchIcons.BATCH_FILE_ICON;
     }
 
 }
