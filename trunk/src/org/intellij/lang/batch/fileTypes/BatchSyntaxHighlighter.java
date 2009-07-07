@@ -3,10 +3,7 @@ package org.intellij.lang.batch.fileTypes;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.tree.IElementType;
-import org.intellij.lang.batch.BatchElementType;
 import org.intellij.lang.batch.BatchTokenTypes;
 import org.intellij.lang.batch.editor.BatchHighlighterColors;
 import org.intellij.lang.batch.lexer.BatchHighlighterLexer;
@@ -26,8 +23,8 @@ public final class BatchSyntaxHighlighter extends SyntaxHighlighterBase {
     private final Map<IElementType, TextAttributesKey> colors = new HashMap<IElementType, TextAttributesKey>();
     private final Map<IElementType, TextAttributesKey> backgrounds = new HashMap<IElementType, TextAttributesKey>();
 
-    public BatchSyntaxHighlighter(Project project, VirtualFile file) {
-        lexer = new BatchHighlighterLexer(project, file);
+    public BatchSyntaxHighlighter() {
+        lexer = new BatchHighlighterLexer();
 
         fillMap(colors, BatchTokenTypes.BRACES, BatchHighlighterColors.BRACES);
         fillMap(colors, BatchTokenTypes.BRACKETS, BatchHighlighterColors.BRACKETS);
@@ -62,10 +59,6 @@ public final class BatchSyntaxHighlighter extends SyntaxHighlighterBase {
     }
 
     private TextAttributesKey getAttributeKeys(IElementType tokenType, Map<IElementType, TextAttributesKey> map) {
-        TextAttributesKey attributes = map.get(tokenType);
-        if (attributes == null && tokenType instanceof BatchElementType) {
-            return map.get(((BatchElementType) tokenType).getParsedType());
-        }
         return map.get(tokenType);
     }
 }
