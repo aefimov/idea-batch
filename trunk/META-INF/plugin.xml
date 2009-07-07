@@ -7,7 +7,7 @@
     </description>
 
     <category>Custom Languages</category>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <vendor>Alexey Efimov</vendor>
     <idea-version since-build="9100"/>
 
@@ -21,6 +21,16 @@
                            implementationClass="org.intellij.lang.batch.fileTypes.BatchSyntaxHighlighter"/>
         <colorSettingsPage
                 implementation="org.intellij.lang.batch.editor.colors.BatchColorPage"/>
+
+        <!--Language extensions -->
+        <lang.commenter language="Batch"
+                        implementationClass="org.intellij.lang.batch.editor.BatchCommenter"/>
+
+        <!-- Run configuration-->
+        <configurationType implementation="org.intellij.lang.batch.runner.BatchConfigurationType"/>
+        <programRunner implementation="org.intellij.lang.batch.runner.BatchRunner"/>
+        <configurationProducer implementation="org.intellij.lang.batch.runner.BatchRunConfigurationProducer"/>
+
     </extensions>
 
 </idea-plugin>
