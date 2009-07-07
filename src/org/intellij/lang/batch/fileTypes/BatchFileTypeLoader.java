@@ -5,7 +5,7 @@ import com.intellij.openapi.fileTypes.FileTypeFactory;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author Mikhail Evdokimov
+ * @author wibotwi
  */
 public class BatchFileTypeLoader extends FileTypeFactory {
 

@@ -14,10 +14,13 @@ import org.intellij.lang.batch.util.BatchIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import sun.reflect.Reflection;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -32,7 +35,7 @@ final class BatchColorPage implements ColorSettingsPage {
     public BatchColorPage() {
         attributeDescriptors.add(new AttributesDescriptor("Brackets", BatchHighlighterColors.BRACKETS));
         attributeDescriptors.add(new AttributesDescriptor("Braces", BatchHighlighterColors.BRACES));
-        attributeDescriptors.add(new AttributesDescriptor("Parenths", BatchHighlighterColors.PARENTHS));
+        attributeDescriptors.add(new AttributesDescriptor("Parenthesis", BatchHighlighterColors.PARENTHS));
         attributeDescriptors.add(new AttributesDescriptor("Comment", BatchHighlighterColors.COMMENT));
         attributeDescriptors.add(new AttributesDescriptor("Operator", BatchHighlighterColors.OPERATION_SIGN));
         attributeDescriptors.add(new AttributesDescriptor("Keyword", BatchHighlighterColors.KEYWORD));
@@ -70,8 +73,16 @@ final class BatchColorPage implements ColorSettingsPage {
     private static String extractIdeaScript() {
         String binPath = PathManager.getBinPath();
         try {
-            char[] chars = FileUtil.loadFileText(new File(binPath, "idea.bat"));
-            return new String(chars).replaceAll("\\r", "");
+            File file = new File(binPath, "idea.bat");
+
+            InputStreamReader streamReader;
+            if (file.exists()) {
+                streamReader = new InputStreamReader(new FileInputStream(file));
+            } else {
+                streamReader = new InputStreamReader(Reflection.getCallerClass(1).getResourceAsStream("/examples/demo.bat"));
+            }
+
+            return FileUtil.loadTextAndClose(streamReader).replaceAll("\\r", "");
         } catch (IOException e) {
             Logger.getInstance(BatchColorPage.class.getName()).error(e);
         }
