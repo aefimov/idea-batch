@@ -1,5 +1,5 @@
 <idea-plugin version="2">
-    <id>org.intellij.lang.batch</id>
+    <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
     <version>1.0.4</version>
     <vendor>Alexey Efimov</vendor>
