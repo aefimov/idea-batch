@@ -4,6 +4,7 @@ import com.intellij.lang.CodeDocumentationAwareCommenter;
 import com.intellij.psi.PsiComment;
 import com.intellij.psi.tree.IElementType;
 import org.intellij.lang.batch.BatchTokenTypes;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author wibotwi
@@ -48,6 +49,18 @@ public class BatchCommenter implements CodeDocumentationAwareCommenter {
     }
 
     public String getBlockCommentSuffix() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public String getCommentedBlockCommentPrefix() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public String getCommentedBlockCommentSuffix() {
         return null;
     }
 }

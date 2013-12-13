@@ -6,6 +6,7 @@ import com.intellij.execution.configuration.EnvironmentVariablesComponent;
 import com.intellij.execution.configurations.*;
 import com.intellij.execution.filters.TextConsoleBuilderFactory;
 import com.intellij.execution.runners.ExecutionEnvironment;
+import com.intellij.execution.runners.RunConfigurationWithSuppressedDefaultRunAction;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.options.SettingsEditor;
@@ -13,8 +14,6 @@ import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.JDOMExternalizerUtil;
 import com.intellij.openapi.util.WriteExternalException;
-import com.intellij.openapi.util.text.StringUtil;
-import org.intellij.lang.batch.util.BatchBundle;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +23,8 @@ import java.util.*;
 /**
  * @author wibotwi
  */
-public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigurationModule> implements CommonBatchRunConfigurationParams, BatchRunConfigurationParams {
+public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigurationModule> implements CommonBatchRunConfigurationParams, BatchRunConfigurationParams,
+        RunConfigurationWithSuppressedDefaultRunAction {
 
     // common config
     private String interpreterOptions = "";
@@ -53,6 +53,7 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
         return new BatchRunConfiguration(getConfigurationModule(), getFactory(), getName());
     }
 
+    @NotNull
     public SettingsEditor<? extends RunConfiguration> getConfigurationEditor() {
         return new BatchRunConfigurationEditor(this);
     }
@@ -65,14 +66,6 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
 
     public String getInterpreterPath() {
         return "cmd.exe";
-    }
-
-    @Override
-    public void checkConfiguration() throws RuntimeConfigurationException {
-        super.checkConfiguration();
-        if (StringUtil.isEmptyOrSpaces(scriptName)) {
-            throw new RuntimeConfigurationException(BatchBundle.message("runcfg.no_script_name"));
-        }
     }
 
     @Override

@@ -5,7 +5,6 @@ import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import org.intellij.lang.batch.fileTypes.BatchSyntaxHighlighter;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -14,11 +13,10 @@ import org.jetbrains.annotations.NotNull;
  * @author Alexey Efimov
  */
 public class BatchLanguage extends Language {
-    @NonNls
-    private static final String ID = "Batch";
+    public static final BatchLanguage INSTANCE = new BatchLanguage();
 
-    public BatchLanguage() {
-        super(ID, "application/x-batch", "application/x-bat", "text/x-script.bat");
+    private BatchLanguage() {
+        super("Batch", "application/x-batch", "application/x-bat", "text/x-script.bat");
         SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new BatchHighlighterFactory());
     }
 

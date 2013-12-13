@@ -1,12 +1,16 @@
 package org.intellij.lang.batch.runner;
 
 import com.intellij.execution.ExecutionException;
+import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.CommandLineState;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.execution.process.ProcessTerminatedListener;
 import com.intellij.execution.runners.ExecutionEnvironment;
+import com.intellij.execution.ui.ConsoleView;
 import com.intellij.openapi.util.text.StringUtil;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author wibotwi
@@ -19,6 +23,7 @@ public class BatchCommandLineState extends CommandLineState {
         this.runConfiguration = runConfiguration;
     }
 
+    @NotNull
     @Override
     protected OSProcessHandler startProcess() throws ExecutionException {
         GeneralCommandLine commandLine = generateCommandLine();
@@ -46,4 +51,12 @@ public class BatchCommandLineState extends CommandLineState {
         return commandLine;
     }
 
+    @Nullable
+    @Override
+    protected ConsoleView createConsole(@NotNull Executor executor) throws ExecutionException {
+        if (runConfiguration.getScriptName() == null || runConfiguration.getScriptName().trim().isEmpty()) {
+            return null;
+        }
+        return super.createConsole(executor);
+    }
 }
