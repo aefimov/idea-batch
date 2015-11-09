@@ -46,8 +46,8 @@ public class BatchCommandLineState extends CommandLineState {
             commandLine.setWorkDirectory(runConfiguration.getWorkingDirectory());
         }
 
-        commandLine.setEnvParams(runConfiguration.getEnvs());
-        commandLine.setPassParentEnvs(runConfiguration.isPassParentEnvs());
+        commandLine.withEnvironment(runConfiguration.getEnvs());
+        commandLine.withPassParentEnvironment(runConfiguration.isPassParentEnvs());
         return commandLine;
     }
 
