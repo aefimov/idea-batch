@@ -35,7 +35,7 @@ public class BatchRunner extends DefaultProgramRunner {
         ExecutionResult executionResult = state.execute(env.getExecutor(), this);
         if (executionResult == null || executionResult.getExecutionConsole() == null) return null;
 
-        final RunContentBuilder contentBuilder = new RunContentBuilder(this, executionResult, env);
+        final RunContentBuilder contentBuilder = new RunContentBuilder(/*this,*/ executionResult, env);
         return contentBuilder.showRunContent(contentToReuse);
     }
 
