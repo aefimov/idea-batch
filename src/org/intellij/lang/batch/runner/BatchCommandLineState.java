@@ -47,7 +47,10 @@ public class BatchCommandLineState extends CommandLineState {
         }
 
         commandLine.withEnvironment(runConfiguration.getEnvs());
-        commandLine.setPassParentEnvironment(runConfiguration.isPassParentEnvs());
+        commandLine.withParentEnvironmentType(runConfiguration.isPassParentEnvs() ?
+                GeneralCommandLine.ParentEnvironmentType.CONSOLE :
+                GeneralCommandLine.ParentEnvironmentType.NONE);
+
         return commandLine;
     }
 
