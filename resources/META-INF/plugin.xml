@@ -13,6 +13,11 @@
     <change-notes>
         <![CDATA[
             <html>
+                <b>Changes in version 1.0.6-Programisci.eu:</b>
+               <ul>
+                 <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
+                 <li>Dracula color scheme support(by Cezary Butler @ Programisci.eu)</li>
+               </ul>
                <b>Changes in version 1.0.5:</b>
                <ul>
                  <li>Support for Intellij IDEA 15 (by Alexander Kriegisch)</li>
