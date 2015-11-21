@@ -1,8 +1,8 @@
 <idea-plugin version="2">
     <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
-    <version>1.0.6-Programisci.eu</version>
-    <vendor>Alexey Efimov</vendor>
+    <version>1.0.6</version>
+    <vendor>Alexey Efimov, Cezary Butler, Alexander Kriegisch</vendor>
 
     <description>
         Windows Batch Scripts support for IntelliJ IDEA. Supports syntax highlighting, run configurations
@@ -13,13 +13,13 @@
     <change-notes>
         <![CDATA[
             <html>
-                <b>Changes in version 1.0.6-Programisci.eu:</b>
+               <b>Changes in version 1.0.6:</b>
                <ul>
                  <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
                  <li>Dracula color scheme support(by Cezary Butler @ Programisci.eu)</li>
                  <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
                </ul>
-               <b>Changes in version 1.0.5:</b>
+               <b>Changes in version 1.0.5 (thanks to ):</b>
                <ul>
                  <li>Support for Intellij IDEA 15 (by Alexander Kriegisch)</li>
                </ul>
