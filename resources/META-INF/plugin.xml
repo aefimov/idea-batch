@@ -2,7 +2,7 @@
     <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
     <version>1.0.6</version>
-    <vendor>Alexey Efimov, Cezary Butler, Alexander Kriegisch</vendor>
+    <vendor>Alexey Efimov, Cezary Butler, Alexander Kriegisch, Johnny Boy, Alexandr Evstigneev, denis, Wi Wi</vendor>
 
     <description>
         Windows Batch Scripts support for IntelliJ IDEA. Supports syntax highlighting, run configurations
