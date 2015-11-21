@@ -19,7 +19,7 @@
                  <li>Dracula color scheme support(by Cezary Butler @ Programisci.eu)</li>
                  <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
                </ul>
-               <b>Changes in version 1.0.5 (thanks to ):</b>
+               <b>Changes in version 1.0.5:</b>
                <ul>
                  <li>Support for Intellij IDEA 15 (by Alexander Kriegisch)</li>
                </ul>
