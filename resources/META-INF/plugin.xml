@@ -17,6 +17,7 @@
                <ul>
                  <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
                  <li>Dracula color scheme support(by Cezary Butler @ Programisci.eu)</li>
+                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
                </ul>
                <b>Changes in version 1.0.5:</b>
                <ul>
