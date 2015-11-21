@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
-    <version>1.0.5</version>
+    <version>1.0.6-Programisci.eu</version>
     <vendor>Alexey Efimov</vendor>
 
     <description>
