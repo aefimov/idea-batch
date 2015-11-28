@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <vendor>Alexey Efimov, Cezary Butler, Alexander Kriegisch, Johnny Boy, Alexandr Evstigneev, denis, Wi Wi</vendor>
 
     <description>
@@ -13,10 +13,14 @@
     <change-notes>
         <![CDATA[
             <html>
+               <b>Changes in version 1.0.7:</b>
+               <ul>
+                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
+               </ul>
                <b>Changes in version 1.0.6:</b>
                <ul>
                  <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
-                 <li>Dracula color scheme support(by Cezary Butler @ Programisci.eu)</li>
+                 <li>Dracula color scheme support (by Cezary Butler @ Programisci.eu)</li>
                  <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
                </ul>
                <b>Changes in version 1.0.5:</b>
