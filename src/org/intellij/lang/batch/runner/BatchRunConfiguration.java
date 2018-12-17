@@ -23,14 +23,14 @@ import java.util.*;
 /**
  * @author wibotwi
  */
-public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigurationModule> implements CommonBatchRunConfigurationParams, BatchRunConfigurationParams,
+public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigurationModule, Element> implements CommonBatchRunConfigurationParams, BatchRunConfigurationParams,
         RunConfigurationWithSuppressedDefaultRunAction {
 
     // common config
     private String interpreterOptions = "";
     private String workingDirectory = "";
     private boolean passParentEnvs = true;
-    private Map<String, String> envs = new HashMap<String, String>();
+    private Map<String, String> envs = new HashMap<>();
 
     // run config
     private String scriptName;
@@ -42,10 +42,7 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
 
     @Override
     public Collection<Module> getValidModules() {
-        List<Module> modules = new ArrayList<Module>();
-        Module[] allModules = ModuleManager.getInstance(getProject()).getModules();
-        modules.addAll(Arrays.asList(allModules));
-        return modules;
+        return new ArrayList<>(Arrays.asList(ModuleManager.getInstance(getProject()).getModules()));
     }
 
     @Override
@@ -123,7 +120,7 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
     }
 
     public static void copyParams(CommonBatchRunConfigurationParams from, CommonBatchRunConfigurationParams to) {
-        to.setEnvs(new HashMap<String, String>(from.getEnvs()));
+        to.setEnvs(new HashMap<>(from.getEnvs()));
         to.setInterpreterOptions(from.getInterpreterOptions());
         to.setWorkingDirectory(from.getWorkingDirectory());
         to.setPassParentEnvs(from.isPassParentEnvs());
