@@ -47,10 +47,9 @@ public class BatchCommandLineState extends CommandLineState {
         }
 
         commandLine.withEnvironment(runConfiguration.getEnvs());
-        // TODO: remove this after discontinue support of IDEA 14
-        // See: https://github.com/aefimov/idea-batch/commit/f90c3ad8e5fbf7ab293d8324c9fc1b0586204fc7
-        commandLine.setPassParentEnvironment(runConfiguration.isPassParentEnvs());
-
+        commandLine.withParentEnvironmentType(runConfiguration.isPassParentEnvs() ?
+                    GeneralCommandLine.ParentEnvironmentType.CONSOLE :
+                    GeneralCommandLine.ParentEnvironmentType.NONE);
         return commandLine;
     }
 

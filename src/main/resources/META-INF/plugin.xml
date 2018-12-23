@@ -11,7 +11,7 @@
     </description>
 
     <category>Custom Languages</category>
-    <idea-version since-build="141.0"/>
+    <idea-version since-build="143.0"/>
 
     <resource-bundle>org.intellij.lang.batch.util.BatchBundle</resource-bundle>
 
