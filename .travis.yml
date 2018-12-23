@@ -9,15 +9,11 @@ before_install:
 script:
   - ./gradlew assemble
 
-after_success:
-  - |
-
-    $(npm bin)/set-up-ssh --key "$encrypted_d20e888f2fa2_key" --iv "$encrypted_d20e888f2fa2_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
-
 deploy:
   provider: releases
   pre-release: true
   skip_cleanup: true
+  api_key: ${GH_TOKEN}
   file_glob: true
   file: $CI_HOME/build/distributions/idea-batch*.zip
   on:
