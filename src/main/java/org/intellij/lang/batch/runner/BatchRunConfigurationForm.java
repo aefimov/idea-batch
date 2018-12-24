@@ -7,10 +7,10 @@ import com.intellij.ui.RawCommandLineEditor;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import org.intellij.lang.batch.util.BatchBundle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ResourceBundle;
 
 /**
  * @author wibotwi
@@ -71,16 +71,16 @@ public class BatchRunConfigurationForm implements BatchRunConfigurationParams {
         rootPanel = new JPanel();
         rootPanel.setLayout(new GridLayoutManager(4, 2, new Insets(0, 0, 0, 0), -1, -1));
         final JLabel label1 = new JLabel();
-        this.$$$loadLabelText$$$(label1, ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.labels.script"));
+        this.$$$loadLabelText$$$(label1, BatchBundle.message("runcfg.labels.script"));
         rootPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
-        this.$$$loadLabelText$$$(label2, ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.labels.script_parameters"));
+        this.$$$loadLabelText$$$(label2, BatchBundle.message("runcfg.labels.script_parameters"));
         rootPanel.add(label2, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         commonOptionsPlaceholder = new JPanel();
         commonOptionsPlaceholder.setLayout(new BorderLayout(0, 0));
         rootPanel.add(commonOptionsPlaceholder, new GridConstraints(2, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         scriptParametersField = new RawCommandLineEditor();
-        scriptParametersField.setDialogCaption(ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.captions.script_parameters_dialog"));
+        scriptParametersField.setDialogCaption(BatchBundle.message("runcfg.captions.script_parameters_dialog"));
         rootPanel.add(scriptParametersField, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(150, -1), null, null, 0, false));
         scriptNameField = new TextFieldWithBrowseButton();
         rootPanel.add(scriptNameField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

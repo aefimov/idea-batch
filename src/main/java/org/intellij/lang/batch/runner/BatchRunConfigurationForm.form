@@ -13,7 +13,7 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text resource-bundle="org/intellij/lang/batch/util/BatchBundle" key="runcfg.labels.script"/>
+          <text resource-bundle="i18n/BatchBundle" key="runcfg.labels.script"/>
         </properties>
       </component>
       <component id="db7fb" class="javax.swing.JLabel">
@@ -21,7 +21,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text resource-bundle="org/intellij/lang/batch/util/BatchBundle" key="runcfg.labels.script_parameters"/>
+          <text resource-bundle="i18n/BatchBundle" key="runcfg.labels.script_parameters"/>
         </properties>
       </component>
       <grid id="c0d3" binding="commonOptionsPlaceholder" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -39,7 +39,7 @@
           </grid>
         </constraints>
         <properties>
-          <dialogCaption resource-bundle="org/intellij/lang/batch/util/BatchBundle" key="runcfg.captions.script_parameters_dialog"/>
+          <dialogCaption resource-bundle="i18n/BatchBundle" key="runcfg.captions.script_parameters_dialog"/>
         </properties>
       </component>
       <component id="265ce" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="scriptNameField">

@@ -99,7 +99,7 @@ final class BatchColorPage implements ColorSettingsPage {
         return new BatchSyntaxHighlighter();
     }
 
-    @Nullable
+    @NotNull
     public Icon getIcon() {
         return BatchIcons.BATCH_FILE_ICON;
     }

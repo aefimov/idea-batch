@@ -7,6 +7,7 @@ import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.ui.RawCommandLineEditor;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import org.intellij.lang.batch.util.BatchBundle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -84,18 +85,18 @@ public class BatchCommonOptionsForm implements CommonBatchRunConfigurationParams
         rootPanel = new JPanel();
         rootPanel.setLayout(new GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
         final JLabel label1 = new JLabel();
-        this.$$$loadLabelText$$$(label1, ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.labels.working_directory"));
+        this.$$$loadLabelText$$$(label1, BatchBundle.message("runcfg.labels.working_directory"));
         rootPanel.add(label1, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         workingDirectoryField = new TextFieldWithBrowseButton();
         rootPanel.add(workingDirectoryField, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(150, -1), null, null, 0, false));
         envsField = new EnvironmentVariablesComponent();
-        envsField.setText(ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.labels.environment_variables"));
+        envsField.setText(BatchBundle.message("runcfg.labels.environment_variables"));
         rootPanel.add(envsField, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
-        this.$$$loadLabelText$$$(label2, ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.labels.interpreter_options"));
+        this.$$$loadLabelText$$$(label2, BatchBundle.message("runcfg.labels.interpreter_options"));
         rootPanel.add(label2, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         interpreterOptionsField = new RawCommandLineEditor();
-        interpreterOptionsField.setDialogCaption(ResourceBundle.getBundle("org/intellij/lang/batch/util/BatchBundle").getString("runcfg.captions.interpreter_options_dialog"));
+        interpreterOptionsField.setDialogCaption(BatchBundle.message("runcfg.captions.interpreter_options_dialog"));
         rootPanel.add(interpreterOptionsField, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(150, -1), null, null, 0, false));
     }
 

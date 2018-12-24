@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 public final class BatchBundle {
     @NonNls
-    private static final String BUNDLE_NAME = "org.intellij.lang.batch.util.BatchBundle";
+    private static final String BUNDLE_NAME = "i18n.BatchBundle";
     private static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
     private BatchBundle() {

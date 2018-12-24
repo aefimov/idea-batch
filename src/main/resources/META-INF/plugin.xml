@@ -13,7 +13,7 @@
     <category>Custom Languages</category>
     <idea-version since-build="143.0"/>
 
-    <resource-bundle>org.intellij.lang.batch.util.BatchBundle</resource-bundle>
+    <resource-bundle>i18n.BatchBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="org.intellij.lang.batch.fileTypes.BatchFileTypeLoader"/>
