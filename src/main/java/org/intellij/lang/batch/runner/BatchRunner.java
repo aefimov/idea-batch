@@ -9,8 +9,8 @@ import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.runners.RunContentBuilder;
 import com.intellij.execution.ui.RunContentDescriptor;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author wibotwi
@@ -25,18 +25,17 @@ public class BatchRunner extends DefaultProgramRunner {
         return profile instanceof BatchRunConfiguration;
     }
 
+    @Nullable
     @Override
-    protected RunContentDescriptor doExecute(final Project project,
-                                             final RunProfileState state,
-                                             final RunContentDescriptor contentToReuse,
-                                             final ExecutionEnvironment env) throws ExecutionException {
+    protected RunContentDescriptor doExecute(@NotNull RunProfileState state,
+                                             @NotNull ExecutionEnvironment env) throws ExecutionException {
         FileDocumentManager.getInstance().saveAllDocuments();
 
         ExecutionResult executionResult = state.execute(env.getExecutor(), this);
         if (executionResult == null || executionResult.getExecutionConsole() == null) return null;
 
-        final RunContentBuilder contentBuilder = new RunContentBuilder(/*this,*/ executionResult, env);
-        return contentBuilder.showRunContent(contentToReuse);
+        final RunContentBuilder contentBuilder = new RunContentBuilder(executionResult, env);
+        return contentBuilder.showRunContent(env.getContentToReuse());
     }
 
 }

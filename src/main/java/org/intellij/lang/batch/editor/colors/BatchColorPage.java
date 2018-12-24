@@ -30,7 +30,7 @@ final class BatchColorPage implements ColorSettingsPage {
     @NonNls
     private static final String SAMPLE = extractIdeaScript();
 
-    private final Set<AttributesDescriptor> attributeDescriptors = new HashSet<AttributesDescriptor>();
+    private final Set<AttributesDescriptor> attributeDescriptors = new HashSet<>();
 
     public BatchColorPage() {
         attributeDescriptors.add(new AttributesDescriptor("Brackets", BatchHighlighterColors.BRACKETS));
@@ -75,7 +75,7 @@ final class BatchColorPage implements ColorSettingsPage {
 
     @NotNull
     public AttributesDescriptor[] getAttributeDescriptors() {
-        return attributeDescriptors.toArray(new AttributesDescriptor[attributeDescriptors.size()]);
+        return attributeDescriptors.toArray(new AttributesDescriptor[0]);
     }
 
     @NotNull
