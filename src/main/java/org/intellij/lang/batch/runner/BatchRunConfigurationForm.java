@@ -115,9 +115,6 @@ public class BatchRunConfigurationForm implements BatchRunConfigurationParams {
         }
     }
 
-    /**
-     * @noinspection ALL
-     */
     public JComponent $$$getRootComponent$$$() {
         return rootPanel;
     }

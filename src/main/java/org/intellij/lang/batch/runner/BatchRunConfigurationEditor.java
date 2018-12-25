@@ -1,6 +1,5 @@
 package org.intellij.lang.batch.runner;
 
-import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,12 +17,12 @@ public class BatchRunConfigurationEditor extends SettingsEditor<BatchRunConfigur
     }
 
     @Override
-    protected void resetEditorFrom(BatchRunConfiguration runConfiguration) {
+    protected void resetEditorFrom(@NotNull BatchRunConfiguration runConfiguration) {
         BatchRunConfiguration.copyParams(runConfiguration, myForm);
     }
 
     @Override
-    protected void applyEditorTo(BatchRunConfiguration runConfiguration) throws ConfigurationException {
+    protected void applyEditorTo(@NotNull BatchRunConfiguration runConfiguration) {
         BatchRunConfiguration.copyParams(myForm, runConfiguration);
     }
 

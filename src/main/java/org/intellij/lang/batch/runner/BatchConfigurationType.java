@@ -28,6 +28,7 @@ public class BatchConfigurationType implements ConfigurationType {
         return null;
     }
 
+    @NotNull
     public String getDisplayName() {
         return "Batch";
     }

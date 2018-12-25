@@ -12,7 +12,6 @@ import org.intellij.lang.batch.util.BatchBundle;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 /**
  * @author wibotwi
@@ -127,9 +126,6 @@ public class BatchCommonOptionsForm implements CommonBatchRunConfigurationParams
         }
     }
 
-    /**
-     * @noinspection ALL
-     */
     public JComponent $$$getRootComponent$$$() {
         return rootPanel;
     }
