@@ -1,5 +1,7 @@
 language: java
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
+  - openjdk8
 sudo: required
 
 
@@ -26,4 +28,3 @@ env:
   - GH_PROJECT_NAME: idea-batch
   - secure: "LqZ6IWornVH5YlmprTrq/Xw0RW9X/neERxlQhfUKJsGeEiVF5jb7zp0rSdp6fSp+R5El7Yrvm3QQDTEoQjNqHfoI8HWbLnda6s15FYogT6570R6gA5iTkLGT962wME0nOfy18S3ONq87F67xGHGZqobQqxRK8vGUFHUv8Ib9ZgzOfwLtjSszoNA7OBCZHgOAQdtGrssZavSOWxjq21YSOQsDSqYH9ZTgRN9mfdCWQbTdmdaXBGclkd0PRWnV6zWLaTNvEXThJFU5NaxCLjOlurwOLrjNdp/Wh+HDMLpq6juBH9yyGiAyT07J3YnrRxGvyzOlif5R6gXy8N3sHam7wE+RvV1k48K2AgQ/PW4D042Rjs5GnaadwO9wBWrwa8TY0l0R9ZklPsVXHckHtQZYk1boq+tWyl+B9GSODXvtevqOSf3yWw105MkPB6IBWWu4JVVKAmqOChmm2jmx48KUVnO0cdPgTASBSbm2Wb6OTK3l5JXnq+pfIAnqgudQvQA9aqt69b773cMClbUsYzfM6eZypWYtotYFtTUs0RY+tpkCovVxzmAPyKWnIBibgO0zg3IDeO4bZqiGv2CcwcveJeAfEDcHYfHcpvB7UZYJXYgBi5PW6/juHrTKx10gVs7k3Sa2l56QrmncVbsKS0/K7gTBOE3gx4ib/IgAk2FQScA="
   - CI_HOME=`pwd`
-  - GRADLE_USER_HOME=`pwd`/.gradle

@@ -14,7 +14,6 @@ import org.intellij.lang.batch.util.BatchIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sun.reflect.Reflection;
 
 import javax.swing.*;
 import java.io.File;
@@ -28,7 +27,7 @@ import java.util.Set;
 final class BatchColorPage implements ColorSettingsPage {
     private static final ColorDescriptor[] EMPTY_COLOR_DESCRIPTOR_ARRAY = new ColorDescriptor[]{};
     @NonNls
-    private static final String SAMPLE = extractIdeaScript();
+    private static final String SAMPLE = extractIdeaScript(BatchColorPage.class);
 
     private final Set<AttributesDescriptor> attributeDescriptors = new HashSet<>();
 
@@ -49,7 +48,7 @@ final class BatchColorPage implements ColorSettingsPage {
         attributeDescriptors.add(new AttributesDescriptor("Expression", BatchHighlighterColors.EXPRESSION));
     }
 
-    private static String extractIdeaScript() {
+    private static String extractIdeaScript(Class callerClass) {
         String binPath = PathManager.getBinPath();
         try {
             File file = new File(binPath, "idea.bat");
@@ -58,7 +57,7 @@ final class BatchColorPage implements ColorSettingsPage {
             if (file.exists()) {
                 streamReader = new InputStreamReader(new FileInputStream(file));
             } else {
-                streamReader = new InputStreamReader(Reflection.getCallerClass(1).getResourceAsStream("/examples/demo.bat"));
+                streamReader = new InputStreamReader(callerClass.getResourceAsStream("/examples/demo.bat"));
             }
 
             return FileUtil.loadTextAndClose(streamReader).replaceAll("\\r", "");
