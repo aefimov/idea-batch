@@ -6,7 +6,6 @@ import org.intellij.lang.batch.util.BatchBundle;
 import org.intellij.lang.batch.util.BatchIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -38,7 +37,7 @@ public final class BatchFileType extends LanguageFileType {
         return BatchBundle.message("batch.filetype.description");
     }
 
-    @Nullable
+    @NotNull
     public Icon getIcon() {
         return BatchIcons.BATCH_FILE_ICON;
     }

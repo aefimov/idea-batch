@@ -18,10 +18,10 @@ public class BatchHighlighterLexer extends LayeredLexer {
         registerLayer(
                 new FlexAdapter(stringLexer),
                 BatchTokenTypes.STRING_LITERAL);
-        _ExpressionLexer extressionLexer = new _ExpressionLexer(null);
-        extressionLexer.setDefaultToken(BatchTokenTypes.EXPRESSION);
+        _ExpressionLexer expressionLexer = new _ExpressionLexer(null);
+        expressionLexer.setDefaultToken(BatchTokenTypes.EXPRESSION);
         registerLayer(
-                new FlexAdapter(extressionLexer),
+                new FlexAdapter(expressionLexer),
                 BatchTokenTypes.EXPRESSION);
         _ExpressionLexer labelLexer = new _ExpressionLexer(null);
         labelLexer.setDefaultToken(BatchTokenTypes.LABEL_REFERENCE);

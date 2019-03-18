@@ -12,7 +12,6 @@ public class BatchElementType extends IElementType {
     }
 
     @Override
-    @SuppressWarnings({"HardCodedStringLiteral"})
     public String toString() {
         return MessageFormat.format("Batch:{0}", super.toString());
     }

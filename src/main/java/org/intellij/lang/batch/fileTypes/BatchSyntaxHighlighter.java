@@ -20,8 +20,8 @@ import java.util.Map;
 public final class BatchSyntaxHighlighter extends SyntaxHighlighterBase {
 
     private final BatchHighlighterLexer lexer;
-    private final Map<IElementType, TextAttributesKey> colors = new HashMap<IElementType, TextAttributesKey>();
-    private final Map<IElementType, TextAttributesKey> backgrounds = new HashMap<IElementType, TextAttributesKey>();
+    private final Map<IElementType, TextAttributesKey> colors = new HashMap<>();
+    private final Map<IElementType, TextAttributesKey> backgrounds = new HashMap<>();
 
     public BatchSyntaxHighlighter() {
         lexer = new BatchHighlighterLexer();
