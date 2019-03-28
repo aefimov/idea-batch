@@ -27,7 +27,7 @@ import java.util.Set;
 final class BatchColorPage implements ColorSettingsPage {
     private static final ColorDescriptor[] EMPTY_COLOR_DESCRIPTOR_ARRAY = new ColorDescriptor[]{};
     @NonNls
-    private static final String SAMPLE = extractIdeaScript(BatchColorPage.class);
+    private static final String SAMPLE = extractIdeaScript();
 
     private final Set<AttributesDescriptor> attributeDescriptors = new HashSet<>();
 
@@ -48,7 +48,7 @@ final class BatchColorPage implements ColorSettingsPage {
         attributeDescriptors.add(new AttributesDescriptor("Expression", BatchHighlighterColors.EXPRESSION));
     }
 
-    private static String extractIdeaScript(Class callerClass) {
+    private static String extractIdeaScript() {
         String binPath = PathManager.getBinPath();
         try {
             File file = new File(binPath, "idea.bat");
@@ -57,7 +57,7 @@ final class BatchColorPage implements ColorSettingsPage {
             if (file.exists()) {
                 streamReader = new InputStreamReader(new FileInputStream(file));
             } else {
-                streamReader = new InputStreamReader(callerClass.getResourceAsStream("/examples/demo.bat"));
+                streamReader = new InputStreamReader(BatchColorPage.class.getResourceAsStream("/examples/demo.bat"));
             }
 
             return FileUtil.loadTextAndClose(streamReader).replaceAll("\\r", "");

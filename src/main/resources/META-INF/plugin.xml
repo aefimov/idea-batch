@@ -11,7 +11,7 @@
     </description>
 
     <category>Custom Languages</category>
-    <idea-version since-build="143.0"/>
+    <idea-version since-build="182.0+"/>
 
     <resource-bundle>i18n.BatchBundle</resource-bundle>
 

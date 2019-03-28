@@ -1,22 +1,20 @@
 package org.intellij.lang.batch.runner;
 
 import com.intellij.execution.actions.ConfigurationContext;
-import com.intellij.execution.actions.RunConfigurationProducer;
+import com.intellij.execution.actions.LazyRunConfigurationProducer;
+import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.openapi.util.Ref;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.intellij.lang.batch.fileTypes.BatchFileType;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
 /**
  * @author wibotwi, denis.bogdanas@gmail.com
  */
-public class BatchRunConfigurationProducer extends RunConfigurationProducer<BatchRunConfiguration> {
-
-    public BatchRunConfigurationProducer() {
-        super(BatchConfigurationType.getInstance());
-    }
+public class BatchRunConfigurationProducer extends LazyRunConfigurationProducer<BatchRunConfiguration> {
 
     @Override
     protected boolean setupConfigurationFromContext(BatchRunConfiguration configuration, ConfigurationContext context,
@@ -52,5 +50,11 @@ public class BatchRunConfigurationProducer extends RunConfigurationProducer<Batc
         } catch (RuntimeException e) {
             return false;
         }
+    }
+
+    @NotNull
+    @Override
+    public ConfigurationFactory getConfigurationFactory() {
+        return BatchConfigurationType.getInstance().getConfigurationFactories()[0];
     }
 }
