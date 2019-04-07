@@ -1,7 +1,6 @@
 <idea-plugin>
     <id>Batch Scripts Support</id>
     <name>Batch Scripts Support</name>
-    <version>1.0.8-Snapshot</version>
     <vendor>Alexey Efimov, Cezary Butler, Alexander Kriegisch, Johnny Boy, Alexandr Evstigneev, denis, Wi Wi</vendor>
 
     <description>
