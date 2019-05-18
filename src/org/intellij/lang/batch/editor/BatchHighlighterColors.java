@@ -44,7 +44,7 @@ public interface BatchHighlighterColors {
         "BATCH.BRACES", DefaultLanguageHighlighterColors.BRACES
     );
     TextAttributesKey BRACKETS = TextAttributesKey.createTextAttributesKey(
-        "BATCH.BRACES", DefaultLanguageHighlighterColors.BRACKETS
+        "BATCH.BRACKETS", DefaultLanguageHighlighterColors.BRACKETS
     );
     TextAttributesKey PARENTHS = TextAttributesKey.createTextAttributesKey(
         "BATCH.PARENTHS", DefaultLanguageHighlighterColors.PARENTHESES
