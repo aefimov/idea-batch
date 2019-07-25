@@ -1,32 +1,22 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
-
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.3.12'
-}
-
-apply plugin: 'idea'
-apply plugin: 'org.jetbrains.intellij'
-apply plugin: 'java'
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-intellij {
-    version '2019.1'
-    //IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
-    pluginName 'idea-batch'
+    id 'org.jetbrains.intellij' version '0.4.9'
 }
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    version '2019.2'
+    //IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
+    pluginName 'idea-batch'
 }
 
 patchPluginXml {
