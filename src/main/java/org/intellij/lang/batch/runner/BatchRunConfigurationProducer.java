@@ -17,8 +17,9 @@ import java.io.File;
 public class BatchRunConfigurationProducer extends LazyRunConfigurationProducer<BatchRunConfiguration> {
 
     @Override
-    protected boolean setupConfigurationFromContext(BatchRunConfiguration configuration, ConfigurationContext context,
-                                                    Ref<PsiElement> sourceElement) {
+    protected boolean setupConfigurationFromContext(@NotNull BatchRunConfiguration configuration,
+                                                    @NotNull ConfigurationContext context,
+                                                    @NotNull Ref<PsiElement> sourceElement) {
         try {
             //noinspection ConstantConditions
             PsiFile contextFile = context.getPsiLocation().getContainingFile();
@@ -40,7 +41,8 @@ public class BatchRunConfigurationProducer extends LazyRunConfigurationProducer<
     }
 
     @Override
-    public boolean isConfigurationFromContext(BatchRunConfiguration configuration, ConfigurationContext context) {
+    public boolean isConfigurationFromContext(@NotNull BatchRunConfiguration configuration,
+                                              @NotNull ConfigurationContext context) {
         try {
             //noinspection ConstantConditions
             String contextPath =
