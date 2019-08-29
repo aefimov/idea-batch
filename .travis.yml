@@ -1,0 +1,23 @@
+language: java
+jdk:
+  - openjdk11
+  - openjdk8
+sudo: required
+
+before_install:
+  - chmod +x gradlew
+
+script:
+  - ./gradlew assemble
+
+deploy:
+  provider: releases
+  pre-release: true
+  skip_cleanup: true
+  api_key: ${GH_TOKEN}
+  file_glob: true
+  file: build/distributions/idea-batch*.zip
+  on:
+    repo: aefimov/idea-batch
+    tags: true
+    all_branches: true

@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.10'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    version '2019.2'
+    //IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
+    pluginName 'idea-batch'
+}
+
+patchPluginXml {
+    changeNotes """
+               <b>Changes in version 1.0.7:</b>
+               <ul>
+                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
+               </ul>
+               <b>Changes in version 1.0.6:</b>
+               <ul>
+                 <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
+                 <li>Dracula color scheme support (by Cezary Butler @ Programisci.eu)</li>
+                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
+               </ul>
+               <b>Changes in version 1.0.5:</b>
+               <ul>
+                 <li>Support for Intellij IDEA 15 (by Alexander Kriegisch)</li>
+               </ul>
+               <b>Changes in version 1.0.4:</b>
+               <ul>
+                 <li>Support for Intellij IDEA 13</li>
+                 <li>Support for empty configurations</li>
+               </ul>"""
+}
+
+group 'org.intellij.lang.batch'
+version '1.0.10'
