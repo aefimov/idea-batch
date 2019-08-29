@@ -1,6 +1,6 @@
 # Batch Scripts Support
-[![Build Status](https://travis-ci.com/SimonIT/idea-batch.svg?branch=master)](https://travis-ci.com/SimonIT/idea-batch)
-![GitHub release](https://img.shields.io/github/release-pre/SimonIT/idea-batch.svg)
+[![Build Status](https://travis-ci.com/aefimov/idea-batch.svg?branch=master)](https://travis-ci.com/aefimov/idea-batch)
+![GitHub release](https://img.shields.io/github/release-pre/aefimov/idea-batch.svg)
 
 Windows Batch Scripts support for IntelliJ IDEA. Supports syntax highlighting, run configurations that can run any command, also empty configurations. Empty run configurations are useful when you want to execute an external tool through a run configuration.
 
