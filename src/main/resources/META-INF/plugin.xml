@@ -10,7 +10,8 @@
     </description>
 
     <category>Custom Languages</category>
-    <idea-version since-build="191.4212.41"/>
+
+    <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>i18n.BatchBundle</resource-bundle>
 

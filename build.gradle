@@ -1,3 +1,5 @@
+// see https://github.com/JetBrains/gradle-intellij-plugin/
+
 plugins {
     id 'java'
     id 'org.jetbrains.intellij' version '0.4.10'
@@ -15,11 +17,12 @@ dependencies {
 
 intellij {
     version '2019.2'
-    //IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
+    // IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
     pluginName 'idea-batch'
 }
 
 patchPluginXml {
+    untilBuild ''
     changeNotes """
                <b>Changes in version 1.0.7:</b>
                <ul>
@@ -43,4 +46,4 @@ patchPluginXml {
 }
 
 group 'org.intellij.lang.batch'
-version '1.0.10'
+version '1.0.11'
