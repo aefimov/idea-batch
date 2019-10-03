@@ -16,8 +16,7 @@ dependencies {
 }
 
 intellij {
-    version '2019.2'
-    // IntelliJ IDEA 2016.3 dependency; for a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
+    version 'LATEST-EAP-SNAPSHOT'
     pluginName 'idea-batch'
 }
 
