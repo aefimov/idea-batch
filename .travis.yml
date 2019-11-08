@@ -17,15 +17,3 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-
-deploy:
-  provider: releases
-  pre-release: true
-  skip_cleanup: true
-  api_key: ${GH_TOKEN}
-  file_glob: true
-  file: build/distributions/idea-batch*.zip
-  on:
-    repo: aefimov/idea-batch
-    tags: true
-    all_branches: true

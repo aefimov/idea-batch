@@ -1,0 +1,8 @@
+root = true
+
+[*]
+end_of_line = crlf
+
+[*.java]
+indent_style = space
+indent_size = 4
