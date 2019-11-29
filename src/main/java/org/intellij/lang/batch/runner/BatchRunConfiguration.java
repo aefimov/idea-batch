@@ -109,9 +109,11 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
         interpreterOptions = JDOMExternalizerUtil.readField(element, "INTERPRETER_OPTIONS");
         workingDirectory = JDOMExternalizerUtil.readField(element, "WORKING_DIRECTORY");
         // validate working directory
-        workingDirectory = workingDirectory.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
-        if (workingDirectory.startsWith("./")) {
-            workingDirectory = workingDirectory.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+        if (workingDirectory != null) {
+            workingDirectory = workingDirectory.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
+            if (workingDirectory.startsWith("./")) {
+                workingDirectory = workingDirectory.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+            }
         }
 
         // env vars
@@ -127,11 +129,12 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
         // run config
         scriptName = JDOMExternalizerUtil.readField(element, "SCRIPT_NAME");
         // validate script name in use case that working directory is not set
-        scriptName = scriptName.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
-        if (scriptName.startsWith("./")) {
-            scriptName = scriptName.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+        if (scriptName != null) {
+            scriptName = scriptName.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
+            if (scriptName.startsWith("./")) {
+                scriptName = scriptName.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+            }
         }
-
         // script params
         scriptParameters = JDOMExternalizerUtil.readField(element, "PARAMETERS");
     }
@@ -150,13 +153,13 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
             base += "/";
         }
 
-        if (workingDirectory.startsWith(base)) {
+        if (workingDirectory != null && workingDirectory.startsWith(base)) {
             localWorkingDirectory = workingDirectory.replaceFirst(Pattern.quote(base), Matcher.quoteReplacement(localPath));
         } else {
             localWorkingDirectory = workingDirectory;
         }
 
-        if (scriptName.startsWith(base)) {
+        if (scriptName != null && scriptName.startsWith(base)) {
             localScriptName = scriptName.replaceFirst(Pattern.quote(base), Matcher.quoteReplacement(localPath));
         } else {
             localScriptName = scriptName;
