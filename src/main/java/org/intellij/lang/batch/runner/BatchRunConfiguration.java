@@ -19,6 +19,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author wibotwi
@@ -98,9 +100,23 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
     public void readExternal(@NotNull Element element) throws InvalidDataException {
         super.readExternal(element);
 
+        // project base path
+        String base = getProject().getBasePath() + "/";
+        if (!base.endsWith("/")) {
+            base += "/";
+        }
         // common config
         interpreterOptions = JDOMExternalizerUtil.readField(element, "INTERPRETER_OPTIONS");
         workingDirectory = JDOMExternalizerUtil.readField(element, "WORKING_DIRECTORY");
+        // validate working directory
+        if (workingDirectory != null) {
+            workingDirectory = workingDirectory.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
+            if (workingDirectory.startsWith("./")) {
+                workingDirectory = workingDirectory.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+            }
+        }
+
+        // env vars
         String str = JDOMExternalizerUtil.readField(element, "PARENT_ENVS");
         if (str != null) {
             passParentEnvs = Boolean.parseBoolean(str);
@@ -112,6 +128,14 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
 
         // run config
         scriptName = JDOMExternalizerUtil.readField(element, "SCRIPT_NAME");
+        // validate script name in use case that working directory is not set
+        if (scriptName != null) {
+            scriptName = scriptName.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("/"));
+            if (scriptName.startsWith("./")) {
+                scriptName = scriptName.replaceFirst(Pattern.quote("./"), Matcher.quoteReplacement(base));
+            }
+        }
+        // script params
         scriptParameters = JDOMExternalizerUtil.readField(element, "PARAMETERS");
     }
 
@@ -119,9 +143,31 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
     public void writeExternal(@NotNull Element element) throws WriteExternalException {
         super.writeExternal(element);
 
+        // localize paths to project
+        String base = getProject().getBasePath();
+        String localPath = "./";
+        String localWorkingDirectory;
+        String localScriptName;
+
+        if (!base.endsWith("/")) {
+            base += "/";
+        }
+
+        if (workingDirectory != null && workingDirectory.startsWith(base)) {
+            localWorkingDirectory = workingDirectory.replaceFirst(Pattern.quote(base), Matcher.quoteReplacement(localPath));
+        } else {
+            localWorkingDirectory = workingDirectory;
+        }
+
+        if (scriptName != null && scriptName.startsWith(base)) {
+            localScriptName = scriptName.replaceFirst(Pattern.quote(base), Matcher.quoteReplacement(localPath));
+        } else {
+            localScriptName = scriptName;
+        }
+
         // common config
         JDOMExternalizerUtil.writeField(element, "INTERPRETER_OPTIONS", interpreterOptions);
-        JDOMExternalizerUtil.writeField(element, "WORKING_DIRECTORY", workingDirectory);
+        JDOMExternalizerUtil.writeField(element, "WORKING_DIRECTORY", localWorkingDirectory);
         JDOMExternalizerUtil.writeField(element, "PARENT_ENVS", Boolean.toString(passParentEnvs));
         EnvironmentVariablesComponent.writeExternal(element, envs);
 
@@ -129,7 +175,7 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
         getConfigurationModule().writeExternal(element);
 
         // run config
-        JDOMExternalizerUtil.writeField(element, "SCRIPT_NAME", scriptName);
+        JDOMExternalizerUtil.writeField(element, "SCRIPT_NAME", localScriptName);
         JDOMExternalizerUtil.writeField(element, "PARAMETERS", scriptParameters);
     }
 
