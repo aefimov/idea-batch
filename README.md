@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/aefimov/idea-batch.svg?branch=master)](https://travis-ci.com/aefimov/idea-batch)
 [![JetBrains IntelliJ Plugins](https://img.shields.io/jetbrains/plugin/v/265-batch-scripts-support)](https://plugins.jetbrains.com/plugin/265-batch-scripts-support)
 [![JetBrains IntelliJ plugins](https://img.shields.io/jetbrains/plugin/d/265-batch-scripts-support)](https://plugins.jetbrains.com/plugin/265-batch-scripts-support)
+![GitHub](https://img.shields.io/github/license/aefimov/idea-batch)
 
 Windows Batch Scripts support for IntelliJ IDEA. Supports syntax highlighting, run configurations that can run any command, also empty configurations. Empty run configurations are useful when you want to execute an external tool through a run configuration.
 
