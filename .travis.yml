@@ -2,10 +2,6 @@ language: java
 jdk:
   - openjdk11
   - openjdk8
-sudo: required
-
-before_install:
-  - chmod +x gradlew
 
 script:
   - ./gradlew assemble

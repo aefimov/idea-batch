@@ -2,7 +2,7 @@
 
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.4.10'
+    id 'org.jetbrains.intellij' version '0.4.16'
 }
 
 sourceCompatibility = 1.8
@@ -21,7 +21,7 @@ intellij {
 }
 
 patchPluginXml {
-    sinceBuild '183'
+    sinceBuild '191.4212.41'
     untilBuild ''
     changeNotes """
                <b>Changes in version 1.0.7:</b>
