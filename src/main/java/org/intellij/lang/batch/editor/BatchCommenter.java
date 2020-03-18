@@ -3,8 +3,12 @@ package org.intellij.lang.batch.editor;
 import com.intellij.lang.CodeDocumentationAwareCommenter;
 import com.intellij.psi.PsiComment;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.util.containers.ContainerUtil;
 import org.intellij.lang.batch.BatchTokenTypes;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 /**
  * @author wibotwi
@@ -42,6 +46,12 @@ public class BatchCommenter implements CodeDocumentationAwareCommenter {
 
     public String getLineCommentPrefix() {
         return "rem ";
+    }
+
+    @NotNull
+    @Override
+    public List<String> getLineCommentPrefixes() {
+        return ContainerUtil.newArrayList(getLineCommentPrefix(), ":: ");
     }
 
     public String getBlockCommentPrefix() {
