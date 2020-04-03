@@ -16,6 +16,10 @@
     <resource-bundle>i18n.BatchBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Batch" implementationClass="org.intellij.lang.batch.fileTypes.BatchFileType"
+                  fieldName="BATCH_FILE_TYPE" language="Batch" extensions="bat;cmd"/>
+
+        <!-- For IntelliJ Platform prior to 2019.2 -->
         <fileTypeFactory implementation="org.intellij.lang.batch.fileTypes.BatchFileTypeLoader"/>
 
         <!--Syntax highlighting-->
