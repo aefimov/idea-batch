@@ -21,7 +21,7 @@ intellij {
 }
 
 patchPluginXml {
-    sinceBuild '191.4212.41'
+    sinceBuild '2019.2'
     untilBuild ''
     changeNotes """
                <b>Changes in version 1.0.7:</b>
