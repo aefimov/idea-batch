@@ -1,10 +1,7 @@
 package org.intellij.lang.batch.editor;
 
-import com.intellij.lang.CodeDocumentationAwareCommenter;
-import com.intellij.psi.PsiComment;
-import com.intellij.psi.tree.IElementType;
+import com.intellij.lang.Commenter;
 import com.intellij.util.containers.ContainerUtil;
-import org.intellij.lang.batch.BatchTokenTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,37 +10,9 @@ import java.util.List;
 /**
  * @author wibotwi
  */
-public class BatchCommenter implements CodeDocumentationAwareCommenter {
+public class BatchCommenter implements Commenter {
 
-
-    public IElementType getLineCommentTokenType() {
-        return BatchTokenTypes.COMMENT;
-    }
-
-    public IElementType getBlockCommentTokenType() {
-        return null;
-    }
-
-    public IElementType getDocumentationCommentTokenType() {
-        return null;
-    }
-
-    public String getDocumentationCommentPrefix() {
-        return null;
-    }
-
-    public String getDocumentationCommentLinePrefix() {
-        return null;
-    }
-
-    public String getDocumentationCommentSuffix() {
-        return null;
-    }
-
-    public boolean isDocumentationComment(PsiComment element) {
-        return false;
-    }
-
+    @Override
     public String getLineCommentPrefix() {
         return "rem ";
     }
@@ -54,10 +23,12 @@ public class BatchCommenter implements CodeDocumentationAwareCommenter {
         return ContainerUtil.newArrayList(getLineCommentPrefix(), ":: ");
     }
 
+    @Override
     public String getBlockCommentPrefix() {
-        return null;
+        return "";
     }
 
+    @Override
     public String getBlockCommentSuffix() {
         return null;
     }

@@ -57,6 +57,12 @@ public class BatchConfigurationType implements ConfigurationType {
 
         @NotNull
         @Override
+        public String getId() {
+            return "Batch";
+        }
+
+        @NotNull
+        @Override
         public RunConfiguration createTemplateConfiguration(@NotNull Project project) {
             return new BatchRunConfiguration(new RunConfigurationModule(project), this, "");
         }

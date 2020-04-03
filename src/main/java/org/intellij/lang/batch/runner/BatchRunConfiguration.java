@@ -61,11 +61,6 @@ public class BatchRunConfiguration extends ModuleBasedConfiguration<RunConfigura
         return new ArrayList<>(Arrays.asList(ModuleManager.getInstance(getProject()).getModules()));
     }
 
-    @Override
-    protected ModuleBasedConfiguration createInstance() {
-        return new BatchRunConfiguration(getConfigurationModule(), getFactory(), getName());
-    }
-
     @NotNull
     public SettingsEditor<? extends RunConfiguration> getConfigurationEditor() {
         return new BatchRunConfigurationEditor(this);
