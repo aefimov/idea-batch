@@ -27,24 +27,28 @@ intellij {
 patchPluginXml {
     untilBuild = ''
     changeNotes = """
-               <b>Changes in version 1.0.7:</b>
+               <b>Changes in version 1.0.13:</b>
                <ul>
-                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
+                 <li>Commenter and file type registration fixes</li>
+                 <li>Minimum version 2020.1 (201.6668.121)</li>
                </ul>
-               <b>Changes in version 1.0.6:</b>
+               <b>Changes in version 1.0.12:</b>
                <ul>
-                 <li>Color scheme based on default IntelliJ (by Cezary Butler @ Programisci.eu)</li>
-                 <li>Dracula color scheme support (by Cezary Butler @ Programisci.eu)</li>
-                 <li>Fixed IDEA 14 compatiblity (which broke when support for 15 was added)</li>
+                 <li>Decrease minimum version to support older IDE Versions)</li>
                </ul>
-               <b>Changes in version 1.0.5:</b>
+               <b>Changes in version 1.0.11:</b>
                <ul>
-                 <li>Support for Intellij IDEA 15 (by Alexander Kriegisch)</li>
+                 <li>Unset the maximum intellij version to not required rebuild (by wibotwi)</li>
+                 <li>Allow installation on all JetBrains IDEs (by wibotwi)</li>
                </ul>
-               <b>Changes in version 1.0.4:</b>
+               <b>Changes in version 1.0.10:</b>
                <ul>
-                 <li>Support for Intellij IDEA 13</li>
-                 <li>Support for empty configurations</li>
+                 <li>Fix typo causing an IllegalStateException #31 (by Divyanshu Sharma)</li>
+                 <li>Change to LazyRunConfigurationProducer, RunConfigurationProducer is deprecated</li>
+                 <li>pluginIcon (by Connectety)</li>
+                 <li>Minimum version 191.4212.41</li>
+                 <li>German translation</li>
+                 <li>MIT License #34</li>
                </ul>"""
 }
 
