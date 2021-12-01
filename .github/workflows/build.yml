@@ -27,7 +27,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: Upload dist
-        if: github.event_name == 'release' && github.event.action == 'created'
         uses: actions/upload-artifact@v2.2.4
         with:
           name: dist
