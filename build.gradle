@@ -30,6 +30,7 @@ patchPluginXml {
                <b>Changes in version 1.0.13:</b>
                <ul>
                  <li>Commenter and file type registration fixes</li>
+                 <li>Fix error in 2021.3</li>
                  <li>Minimum version 2020.1 (201.6668.121)</li>
                </ul>
                <b>Changes in version 1.0.12:</b>
