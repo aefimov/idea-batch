@@ -7,6 +7,11 @@
 Windows Batch Scripts support for IntelliJ IDEA. Supports syntax highlighting, run configurations that can run any command, also empty configurations. Empty run configurations are useful when you want to execute an external tool through a run configuration.
 
 ## Changelog
+### Changes in version 1.0.13:
+* Commenter and file type registration fixes
+* Fix error in 2021.3
+* Minimum version 2020.1 (201.6668.121)
+
 ### Changes in version 1.0.12:
 * Decrease minimum version to support older IDE Versions
 
