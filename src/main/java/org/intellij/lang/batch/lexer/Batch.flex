@@ -194,7 +194,7 @@ EscapeCharacter = "^".
     "="[ \t]*{Exp}      { yybegin(SET_VALUE); yypushback(yylength() - 1); return BatchTokenTypes.EQUAL_OPERATOR; }
     {Exp}[ \t]*"="      { yybegin(SET); yypushback(1); return BatchTokenTypes.ENVIRONMENT_VARIABLE_DEFINITION;}
     "="                 { yybegin(SET_VALUE); return BatchTokenTypes.EQUAL_OPERATOR; }
-    .                   { yybegin(SET); return BatchTokenTypes.BAD_CHARACTER; }
+    .                   { yybegin(SET); return BatchTokenTypes.EXPRESSION; }
 }
 
 <SET_VALUE> {
@@ -203,4 +203,3 @@ EscapeCharacter = "^".
     {StringLiteral}     { yybegin(SET_VALUE); return BatchTokenTypes.STRING_LITERAL;}
     .                   { yybegin(SET_VALUE); return BatchTokenTypes.EXPRESSION; }
 }
-
