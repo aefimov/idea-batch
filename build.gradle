@@ -4,7 +4,7 @@ import org.jetbrains.grammarkit.tasks.GenerateLexerTask
 
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.10.1'
+    id 'org.jetbrains.intellij' version '1.11.0'
     id "org.jetbrains.grammarkit" version "2022.3"
     id "com.github.ben-manes.versions" version "0.44.0"
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.77.2'
