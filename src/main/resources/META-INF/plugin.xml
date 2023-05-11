@@ -26,8 +26,9 @@
                 implementation="org.intellij.lang.batch.editor.colors.BatchColorPage"/>
 
         <!--Language extensions -->
+        <multiLangCommenter implementation="org.intellij.lang.batch.editor.MultiLangCommentProvider"/>
         <lang.commenter language="Batch"
-                        implementationClass="org.intellij.lang.batch.editor.BatchCommenter"/>
+                        implementationClass="org.intellij.lang.batch.editor.MultiLangCommentProvider"/>
 
         <!-- Run configuration-->
         <configurationType implementation="org.intellij.lang.batch.runner.BatchConfigurationType"/>
