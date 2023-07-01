@@ -2,6 +2,7 @@ package org.intellij.lang.batch.editor;
 
 import com.intellij.lang.Commenter;
 import com.intellij.util.containers.ContainerUtil;
+import org.intellij.lang.batch.settings.AppSettingsState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,7 +15,8 @@ public class BatchCommenter implements Commenter {
 
     @Override
     public String getLineCommentPrefix() {
-        return "rem ";
+        AppSettingsState settings = AppSettingsState.getInstance();
+        return settings.commentPrefix;
     }
 
     @NotNull

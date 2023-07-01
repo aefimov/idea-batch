@@ -26,14 +26,22 @@
                 implementation="org.intellij.lang.batch.editor.colors.BatchColorPage"/>
 
         <!--Language extensions -->
+        <multiLangCommenter implementation="org.intellij.lang.batch.editor.MultiLangCommentProvider"/>
         <lang.commenter language="Batch"
-                        implementationClass="org.intellij.lang.batch.editor.BatchCommenter"/>
+                        implementationClass="org.intellij.lang.batch.editor.MultiLangCommentProvider"/>
 
         <!-- Run configuration-->
         <configurationType implementation="org.intellij.lang.batch.runner.BatchConfigurationType"/>
         <programRunner implementation="org.intellij.lang.batch.runner.BatchRunner"/>
         <!--<configurationProducer implementation="org.intellij.lang.batch.runner.BatchRunConfigurationProducer"/>-->
         <runConfigurationProducer implementation="org.intellij.lang.batch.runner.BatchRunConfigurationProducer"/>
+        <!--settings-->
+        <applicationConfigurable
+                parentId="tools"
+                instance="org.intellij.lang.batch.settings.AppSettingsConfigurable"
+                id="org.intellij.lang.batch.settings.AppSettingsConfigurable"
+                displayName="Settings for Batch Plugin"/>
+        <applicationService serviceImplementation="org.intellij.lang.batch.settings.AppSettingsState"/>
 
     </extensions>
 
