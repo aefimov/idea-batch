@@ -1,5 +1,7 @@
 package org.intellij.lang.batch.runner;
 
+import com.intellij.ide.DataManager;
+import com.intellij.ide.macro.MacroManager;
 import com.intellij.openapi.options.SettingsEditor;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,6 +16,10 @@ public class BatchRunConfigurationEditor extends SettingsEditor<BatchRunConfigur
 
     public BatchRunConfigurationEditor(BatchRunConfiguration batchRunConfiguration) {
         this.myForm = new BatchRunConfigurationForm(batchRunConfiguration);
+        DataManager.getInstance().getDataContextFromFocusAsync().then(dataContext -> {
+            MacroManager.getInstance().cacheMacrosPreview(dataContext);
+            return dataContext;
+        });
     }
 
     @Override
