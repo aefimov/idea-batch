@@ -1,10 +1,12 @@
 package org.intellij.lang.batch.runner;
 
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+import com.intellij.ide.macro.MacrosDialog;
 import com.intellij.ide.util.BrowseFilesListener;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.ui.RawCommandLineEditor;
+import com.intellij.ui.components.fields.ExtendableTextField;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.util.ui.JBUI;
@@ -25,6 +27,7 @@ public class BatchCommonOptionsForm implements CommonBatchRunConfigurationParams
 
     public BatchCommonOptionsForm(BatchRunConfiguration runConfiguration) {
         workingDirectoryField.addBrowseFolderListener("Select Working Directory", "", runConfiguration.getProject(), BrowseFilesListener.SINGLE_DIRECTORY_DESCRIPTOR);
+        MacrosDialog.addTextFieldExtension((ExtendableTextField)workingDirectoryField.getTextField());
     }
 
     public JPanel getRootPanel() {

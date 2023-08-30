@@ -8,6 +8,9 @@ import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.execution.process.ProcessTerminatedListener;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.ui.ConsoleView;
+import com.intellij.ide.macro.Macro;
+import com.intellij.ide.macro.MacroManager;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.text.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,9 +44,9 @@ public class BatchCommandLineState extends CommandLineState {
             commandLine.addParameter(runConfiguration.getScriptName());
         }
 
-        commandLine.getParametersList().addParametersString(runConfiguration.getScriptParameters());
+        commandLine.getParametersList().addParametersString(expandMacrosInName(runConfiguration.getScriptParameters()));
         if (!StringUtil.isEmptyOrSpaces(runConfiguration.getWorkingDirectory())) {
-            commandLine.setWorkDirectory(runConfiguration.getWorkingDirectory());
+             commandLine.setWorkDirectory(expandMacrosInName(runConfiguration.getWorkingDirectory()));
         }
 
         commandLine.withEnvironment(runConfiguration.getEnvs());
@@ -51,6 +54,17 @@ public class BatchCommandLineState extends CommandLineState {
                     GeneralCommandLine.ParentEnvironmentType.CONSOLE :
                     GeneralCommandLine.ParentEnvironmentType.NONE);
         return commandLine;
+    }
+
+    public String expandMacrosInName(String name) {
+        if (name != null && name.contains("$")) {
+            try {
+                return MacroManager.getInstance().expandMacrosInString(name, true, getEnvironment().getDataContext());
+            } catch (Macro.ExecutionCancelledException e) {
+                Logger.getInstance(BatchCommandLineState.class.getName()).info(e);
+            }
+        }
+        return name;
     }
 
     @Nullable

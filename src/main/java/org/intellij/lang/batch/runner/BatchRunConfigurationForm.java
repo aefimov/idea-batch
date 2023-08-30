@@ -1,9 +1,11 @@
 package org.intellij.lang.batch.runner;
 
+import com.intellij.ide.macro.MacrosDialog;
 import com.intellij.ide.util.BrowseFilesListener;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.ui.RawCommandLineEditor;
+import com.intellij.ui.components.fields.ExtendableTextField;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -28,6 +30,7 @@ public class BatchRunConfigurationForm implements BatchRunConfigurationParams {
         commonOptionsPlaceholder.add(commonOptionsForm.getRootPanel(), BorderLayout.CENTER);
 
         scriptNameField.addBrowseFolderListener("Select Script", "", runConfiguration.getProject(), BrowseFilesListener.SINGLE_FILE_DESCRIPTOR);
+        MacrosDialog.addTextFieldExtension((ExtendableTextField)scriptParametersField.getTextField());
     }
 
     public JPanel getRootPanel() {
